@@ -29,7 +29,19 @@ export async function generateSkill(input: GenerateInput): Promise<GenerateOutpu
   const system = isPro ? PRO_SYSTEM_PROMPT : FREE_SYSTEM_PROMPT;
 
   // Build the user message — text content + optional image.
-  const userBlocks: Anthropic.Messages.ContentBlockParam[] = [];
+  // Inline structural type (Anthropic SDK 0.x renames these between minor versions,
+  // so we avoid Anthropic.Messages.ContentBlockParam and friends).
+  type UserBlock =
+    | { type: 'text'; text: string }
+    | {
+        type: 'image';
+        source: {
+          type: 'base64';
+          media_type: 'image/png' | 'image/jpeg' | 'image/webp';
+          data: string;
+        };
+      };
+  const userBlocks: UserBlock[] = [];
 
   if (input.imageBase64 && input.imageMediaType) {
     userBlocks.push({
@@ -59,7 +71,7 @@ export async function generateSkill(input: GenerateInput): Promise<GenerateOutpu
   });
 
   const raw = response.content
-    .filter((block): block is Anthropic.Messages.TextBlock => block.type === 'text')
+    .filter((block): block is { type: 'text'; text: string } => block.type === 'text')
     .map((block) => block.text)
     .join('');
 
