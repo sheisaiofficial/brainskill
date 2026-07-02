@@ -25,6 +25,12 @@ const FUNDERS = JSON.parse(readFileSync(join(here, "data", "funders.json"), "utf
 
 // ---------- CLI parsing ----------
 
+function parseAmount(s) {
+  const m = String(s).toLowerCase().replace(/[$,\s]/g, "").match(/^([0-9.]+)(k|m)?$/);
+  if (!m) return undefined;
+  return Number(m[1]) * (m[2] === "m" ? 1e6 : m[2] === "k" ? 1e3 : 1);
+}
+
 function parseArgs(argv) {
   const args = { focus: [] };
   for (let i = 0; i < argv.length; i++) {
@@ -32,7 +38,7 @@ function parseArgs(argv) {
     const next = () => argv[++i];
     switch (a) {
       case "--stage": args.stage = next()?.toLowerCase(); break;
-      case "--amount": args.amount = Number(String(next()).replace(/[^0-9.]/g, "")); break;
+      case "--amount": args.amount = parseAmount(next()); break;
       case "--region": args.region = next()?.toLowerCase(); break;
       case "--sector": args.sector = next()?.toLowerCase(); break;
       case "--focus": args.focus.push(next()?.toLowerCase()); break;
@@ -130,6 +136,7 @@ const TYPE_LABEL = {
 function fmtCheque(c) {
   if (!c) return "cheque size not published";
   const fmt = (n) => (n >= 1e6 ? `$${n / 1e6}m` : `$${Math.round(n / 1e3)}k`);
+  if (c.min != null && c.min === c.max) return `~${fmt(c.min)} NZD`;
   if (c.min != null && c.max != null) return `${fmt(c.min)}–${fmt(c.max)} NZD`;
   if (c.max != null) return `up to ${fmt(c.max)} NZD`;
   return `from ${fmt(c.min)} NZD`;
