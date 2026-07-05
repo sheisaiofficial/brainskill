@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://intelligence.sheisai.ai/schema/sia-profile.schema.json",
+  "title": "SIA Profile",
+  "description": "The SHE IS AI canonical profile schema (v0.1). One machine-readable model of a person across the three levels — self (soul), systems (mind), execution (body). Every SHE IS AI tool reads from and writes to this shape. This is the contract of the intelligence layer.",
+  "type": "object",
+  "required": ["sia_version", "layer"],
+  "properties": {
+    "sia_version": { "type": "string", "const": "0.1" },
+    "generated_for": { "type": "string", "description": "Person's first name or chosen name." },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "layer": {
+      "type": "string",
+      "enum": ["self", "systems", "others", "agentic"],
+      "description": "Which layer of the map this document contributes to."
+    },
+    "generated_from": {
+      "type": "array",
+      "description": "Which tool(s) produced this document.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "intelligence.sheisai.ai",
+          "brainskill.sheisai.ai",
+          "peaceskill.sheisai.ai",
+          "coo.sheisai.ai",
+          "sol.sheisai.ai",
+          "manual"
+        ]
+      }
+    },
+    "lenses": {
+      "type": "array",
+      "description": "The methodologies the person brought, and what each revealed.",
+      "items": {
+        "type": "object",
+        "required": ["id", "provided"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": [
+              "brain-profile", "mbti", "disc", "gallup", "enneagram",
+              "human-design", "astrology", "numerology",
+              "journey", "goals-drivers", "peace", "business"
+            ]
+          },
+          "provided": { "type": "boolean" },
+          "key_findings": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "golden_thread": {
+      "type": "string",
+      "description": "The one story every lens tells together."
+    },
+    "convergences": {
+      "type": "array",
+      "description": "Traits confirmed by two or more lenses. Load-bearing.",
+      "items": {
+        "type": "object",
+        "required": ["trait", "supported_by"],
+        "properties": {
+          "trait": { "type": "string" },
+          "supported_by": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "tensions": {
+      "type": "array",
+      "description": "Polarities where lenses pull in different directions — managed, not fixed.",
+      "items": {
+        "type": "object",
+        "required": ["polarity"],
+        "properties": {
+          "polarity": { "type": "string" },
+          "between": { "type": "array", "items": { "type": "string" } },
+          "guidance": { "type": "string" }
+        }
+      }
+    },
+    "strengths": { "type": "array", "items": { "type": "string" } },
+    "growth_edges": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Costs of strengths. Never pathology."
+    },
+    "drivers": { "type": "array", "items": { "type": "string" } },
+    "drains": { "type": "array", "items": { "type": "string" } },
+    "next_phase": { "type": "string" },
+    "governance": {
+      "type": "object",
+      "description": "The person's AI operating rules — inherited by every agent built for them.",
+      "properties": {
+        "values": { "type": "array", "items": { "type": "string" } },
+        "decision_rights": {
+          "type": "object",
+          "properties": {
+            "autonomous": { "type": "array", "items": { "type": "string" } },
+            "draft_only": { "type": "array", "items": { "type": "string" } },
+            "never": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "red_lines": { "type": "array", "items": { "type": "string" } },
+        "wellbeing_clause": { "type": "string" }
+      }
+    }
+  }
+}

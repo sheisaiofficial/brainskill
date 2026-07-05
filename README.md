@@ -178,3 +178,21 @@ db/
 ---
 
 Email anything weird to Amanda.
+
+---
+
+## This repo is now multi-app
+
+The repo root is still brainskill.sheisai.ai (unchanged, deploys as before).
+New SHE IS AI ecosystem apps live alongside it:
+
+| Path | Deploys to | What it is |
+|---|---|---|
+| `/` (root) | brainskill.sheisai.ai | Brain profile → Claude skill (live) |
+| `apps/peaceskill` | peaceskill.sheisai.ai | Self-care, weekly rhythm & work-life balance skill |
+| `apps/hub` | intelligence.sheisai.ai | The Level 1 journey → Intelligence Layer pack |
+| `packages/schema` | — | SIA Profile Schema v0.1 (shared contract) |
+| `docs/` | — | Ecosystem plan + Level 1 build notes |
+
+Each app is its own Vercel project — set **Root Directory** to the app path.
+See `docs/LEVEL1-BUILD.md` for the full picture.

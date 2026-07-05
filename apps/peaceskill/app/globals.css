@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-paper: #FBFAF7;
+  --color-ink: #1A1B20;
+}
+
+html, body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-feature-settings: "ss01", "cv11";
+}
+
+body {
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: Georgia, ui-serif, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+::selection {
+  background: #C9A24D;
+  color: #1A1B20;
+}
+
+/* Skill preview block — monospaced, paper-tinted */
+.skill-preview {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  background: #ffffff;
+  border: 1px solid #E6E1D8;
+  border-left: 4px solid #6E8F7A;
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  max-height: 28rem;
+  overflow-y: auto;
+}
+
+/* Sage gradient hero band */
+.hero-band {
+  background:
+    radial-gradient(60% 80% at 10% 0%, #E9EFEB 0%, transparent 60%),
+    radial-gradient(40% 60% at 100% 100%, #D6DFF1 0%, transparent 60%),
+    linear-gradient(180deg, #FBFAF7 0%, #F1ECE1 100%);
+}
+
+/* Gold accent rule */
+.gold-rule {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #C9A24D 50%, transparent);
+}
+
+/* Focus rings: visible, on-brand */
+:where(button, a, input, textarea, select):focus-visible {
+  outline: 2px solid #2B4FA8;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
