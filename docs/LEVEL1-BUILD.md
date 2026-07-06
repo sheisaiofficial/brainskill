@@ -55,16 +55,21 @@ Two contracts make the infusion reliable rather than vibes:
 
 ## What's needed from Amanda (maps to her questions)
 
-1. **Laura's full report — yes, wanted.** It's the gold standard for calibrating
-   `apps/hub/lib/prompts.ts`: section depth, tone, how journey/baseline/current
-   state/next phase/life path/numerology read when done right. Redact anything
-   private (or get Laura's OK). We'll tune the synthesis prompt against it.
-2. **The AI OS prompt — yes, send it.** We'll add the Level 1 ingestion block and
-   ship it as `how-to-build-your-os.md` inside the Pro pack, closing the loop
-   from Level 1 into Level 2.
+1. **Laura's report — RECEIVED & DONE.** The synthesis prompts are calibrated to
+   its house style: confirmed-vs-converged provenance, the four-corner quadrant
+   model with an honestly named empty corner, instrument-vs-driver corrections,
+   cost-of-the-gift framing, working-style blocks, and a "Still to Confirm"
+   section. Gene Keys and other-systems (Chinese astrology / Ayurveda) lenses
+   added to the registry to match.
+2. **The AI OS prompt — RECEIVED & DONE.** Two artifacts: every Pro pack now
+   ships `how-to-build-your-os.md` (static, in `apps/hub/lib/os-bridge.ts`)
+   with the exact filing map into the OS tree; and
+   `docs/ai-os/BUILD-YOUR-AI-OS-PROMPT.md` is the full OS build prompt with
+   `[IL]`-marked additions (Phase 0 Q9, Phase 2.5 install, governance-merge
+   rules, never-edit-the-layer safety rule).
 3. **Keys & config to go live:** for each of the two new Vercel projects —
    `ANTHROPIC_API_KEY`, Stripe product+price (Peace Skill Pro $47; Intelligence
    Layer Pro — confirm $97), webhook secrets, Flodesk segments, Postgres link,
    and the two domains pointed (`peaceskill.` and `intelligence.` → Vercel).
-4. **Pro pricing confirmation** for the hub ($97 is a placeholder in copy).
+4. **Pro pricing** — Amanda says $27–$97; copy currently shows $97. Pick the number, set the Stripe price, adjust copy if not $97.
 5. **COO repo access** when ready, so COO can read the schema files.

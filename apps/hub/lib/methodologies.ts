@@ -88,6 +88,21 @@ export const METHODOLOGIES: Methodology[] = [
     placeholder: 'Paste your natal chart summary — sun, moon, rising, key placements, or a full chart reading…',
   },
   {
+    id: 'gene-keys',
+    name: 'Gene Keys',
+    category: 'energetic',
+    reveals: 'Your golden path — life\'s work, evolution, radiance, purpose, and the gift/shadow spectrum of each key.',
+    getIt: { label: 'Get your free profile at genekeys.com', url: 'https://genekeys.com/free-profile/' },
+    placeholder: 'Paste your Gene Keys profile — Life\'s Work, Evolution, Radiance, Purpose, Pearl sequence, and any notes on your keys…',
+  },
+  {
+    id: 'other-systems',
+    name: 'Other systems',
+    category: 'energetic',
+    reveals: 'Chinese astrology, Ayurveda, Mayan, or any other system that speaks to you.',
+    placeholder: 'Paste anything else — Chinese astrology (year/hour animals), Ayurvedic dosha, Mayan sign, or any other reading you work with…',
+  },
+  {
     id: 'numerology',
     name: 'Numerology & life path',
     category: 'energetic',

@@ -40,7 +40,7 @@
             "type": "string",
             "enum": [
               "brain-profile", "mbti", "disc", "gallup", "enneagram",
-              "human-design", "astrology", "numerology",
+              "human-design", "astrology", "numerology", "gene-keys", "other-systems",
               "journey", "goals-drivers", "peace", "business"
             ]
           },

@@ -9,7 +9,7 @@ export default function LandingPage() {
       <section className="hero-band">
         <div className="max-w-page mx-auto px-5 sm:px-8 pt-20 pb-24 md:pt-28 md:pb-32 text-center">
           <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-sage-deep/80">
-            SHE IS AI · The Intelligence Layer
+            SHE IS AI × SHE IS SOL · The Intelligence Layer
           </p>
           <h1 className="mt-6 font-serif text-4xl sm:text-5xl md:text-6xl text-neutral-ink leading-[1.1] max-w-3xl mx-auto">
             AI that works with your consciousness, not just your calendar.

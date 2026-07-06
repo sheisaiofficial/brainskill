@@ -10,7 +10,7 @@ export default function JourneyPage() {
   return (
     <div className="max-w-3xl mx-auto px-5 sm:px-8 py-16 md:py-20">
       <p className="text-xs uppercase tracking-[0.2em] text-sage-deep/80">
-        Level 1 · The Soul level · Understand yourself
+        Level 1 · The Soul level · SHE IS AI × SHE IS SOL
       </p>
       <h1 className="mt-3 font-serif text-4xl md:text-5xl text-neutral-ink leading-[1.1]">
         Bring every lens. Leave with your Intelligence Layer.

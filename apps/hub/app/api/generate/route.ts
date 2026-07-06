@@ -5,6 +5,7 @@ import { subscribeToFlodesk } from '@/lib/flodesk';
 import { logGeneration } from '@/lib/db';
 import { buildSkillZip } from '@/lib/zip';
 import { isValidEmail } from '@/lib/validate';
+import { OS_BRIDGE_FILENAME, OS_BRIDGE_MD } from '@/lib/os-bridge';
 import {
   methodologyById,
   MIN_INPUTS,
@@ -122,7 +123,12 @@ export async function POST(req: NextRequest) {
   }
 
   // Always a zip — the intelligence layer is a multi-file pack.
-  const zipBuf = await buildSkillZip(generated.files);
+  // Pro packs also carry the static Level 1 → Level 2 bridge.
+  const packFiles =
+    tier === 'pro'
+      ? [...generated.files, { name: OS_BRIDGE_FILENAME, content: OS_BRIDGE_MD }]
+      : generated.files;
+  const zipBuf = await buildSkillZip(packFiles);
   const downloadUrl = `data:application/zip;base64,${zipBuf.toString('base64')}`;
 
   // Best-effort: log + subscribe. Never block the user.
@@ -149,7 +155,7 @@ export async function POST(req: NextRequest) {
   return NextResponse.json({
     ok: true,
     tier,
-    files: generated.files.map((f) => ({ name: f.name })),
+    files: packFiles.map((f) => ({ name: f.name })),
     downloadUrl,
     preview: preview.slice(0, 6000),
   });
