@@ -112,6 +112,14 @@ export const METHODOLOGIES: Methodology[] = [
   },
   // ── In your own words ──────────────────────────────────────────
   {
+    id: 'soul-interview',
+    name: 'The Soul-Led Interview',
+    category: 'own-words',
+    reveals: 'The anchor lens — your own recognised truth, from the deep interview you run with your Claude.',
+    getIt: { label: 'Run the Soul-Led Intelligence Interview', url: '/interview' },
+    placeholder: 'Paste your soul-interview.md — the file Claude handed you at the end of the Soul-Led Intelligence Interview…',
+  },
+  {
     id: 'journey',
     name: 'Your journey & current state',
     category: 'own-words',

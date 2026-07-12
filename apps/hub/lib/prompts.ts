@@ -44,6 +44,12 @@ CROSS-LENS SYNTHESIS (this is your real job — never summarise lenses one by on
   (the perfectionist refines past readiness; the visionary starts and strains
   to close). Name the mechanism, not just the trait.
 - THE GOLDEN THREAD — the one story all the lenses are telling together.
+- THE ANCHOR LENS — if a soul-interview lens is present, it outranks every
+  other lens: its "Recognised as true" findings are CONFIRMED by definition
+  (the person recognised them), its "gap map" and governance material flow
+  directly into the report and GOVERNANCE file, and every other lens is
+  checked against it. Where an assessment contradicts the person's own
+  recognised truth, the recognised truth wins and the tension is noted.
 
 THE QUADRANT MODEL (use when the material supports it):
 Map the person onto four corners — Analytical/Knowledge (the Thinker),

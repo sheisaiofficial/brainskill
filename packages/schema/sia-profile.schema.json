@@ -41,7 +41,7 @@
             "enum": [
               "brain-profile", "mbti", "disc", "gallup", "enneagram",
               "human-design", "astrology", "numerology", "gene-keys", "other-systems",
-              "journey", "goals-drivers", "peace", "business"
+              "soul-interview", "journey", "goals-drivers", "peace", "business"
             ]
           },
           "provided": { "type": "boolean" },
