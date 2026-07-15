@@ -97,6 +97,40 @@ engine as FACE THE RESISTANCE: every gap is delivered with both halves — the
 system that carries the load AND the invitation to grow at the edge, in the
 person's own awareness, decision-making, and self-responsibility.
 
+## Grains from the bespoke-department model (the HD marketing example)
+
+Studied: a done-for-you "personalised AI marketing department" — collaborative
+extraction up front (positioning, voice, offers, ideal clients, HD as one
+diagnostic layer), then custom context/skills/agents the client keeps using.
+
+**Take:**
+1. **A measurable outcome promise.** They sell "~80% less content workload."
+   We sell understanding — add one operational promise per product ("your AI
+   stops giving you generic advice, permanently"; "never re-explain yourself
+   to your AI again").
+2. **The independence arc, said out loud.** "You never need us again — the
+   files are yours" is a selling line, not just an ethic.
+3. **A business lens in the journey.** Their diagnostic covers offers, voice,
+   ideal clients, how the person naturally sells. Our journey is person-deep
+   but business-light — add one "Your work & business" lens (the schema
+   already reserves the `business` lens id) so the synthesis can connect
+   wiring → work. Small build, Phase A/B.
+4. **A done-with-you tier on top.** Their model proves the high-touch price
+   point. Ours stacks: self-serve ($27–97) → teams ($197–497) → practitioner
+   /done-with-you build ($1–5k) using our own tools — the peer's whole
+   business is our top tier.
+5. **Make Level 2/3 feel like a department, not files.** The OS builder should
+   ship at least one working agent template so people experience "systems
+   trained to see like me," not just markdown.
+
+**Don't take:** done-for-you as the core model (doesn't scale; we're
+product-led); single-lens HD diagnostics (we synthesise many, with
+provenance); marketing-only scope (we're the foundation everything sits on).
+
+**Positioning line:** they hand-build a department around one person; we built
+the engine that lets anyone generate that foundation themselves — and the
+hands-on version sits on top as our premium tier, not our business model.
+
 ## Decisions needed at the review
 
 1. Hub Pro price ($27–97) · 2. Teams tier price · 3. Free-tier depth (hold the
