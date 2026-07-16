@@ -26,6 +26,20 @@ export async function logGeneration(row: GenerationRow): Promise<void> {
   }
 }
 
+// Best-effort daily counter for free-tier rate limiting. Returns 0 when the
+// DB is unavailable so the limiter fails open, never blocking real users.
+export async function countRecentGenerations(email: string): Promise<number> {
+  try {
+    const r = await sql`
+      SELECT COUNT(*)::int AS n FROM generations
+      WHERE email = ${email} AND generated_at > now() - interval '1 day'
+    `;
+    return r.rows[0]?.n ?? 0;
+  } catch {
+    return 0;
+  }
+}
+
 export async function markRefunded(stripeId: string): Promise<void> {
   try {
     await sql`

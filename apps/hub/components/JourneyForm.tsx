@@ -432,8 +432,9 @@ function SuccessState({
       <div className="rounded-2xl bg-sage-wash border border-sage-tint p-6">
         <h2 className="font-serif text-2xl text-sage-deep">Your Intelligence Layer is ready.</h2>
         <p className="mt-2 text-neutral-ink/85">
-          {result.files.length} files, packed and ready. We&apos;ve also emailed a copy to{' '}
-          <strong>{email}</strong> — if it doesn&apos;t arrive in 5 minutes, check spam.
+          {result.files.length} files, packed and ready. Download it now and save it
+          somewhere safe — this link lives only on this page. (We&apos;ve added{' '}
+          <strong>{email}</strong> to the list for what comes next.)
         </p>
         <ul className="mt-4 flex flex-wrap gap-2">
           {result.files.map((f) => (

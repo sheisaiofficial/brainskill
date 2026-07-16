@@ -2,10 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { generateSynthesis } from '@/lib/anthropic';
 import { verifyProSession } from '@/lib/stripe';
 import { subscribeToFlodesk } from '@/lib/flodesk';
-import { logGeneration } from '@/lib/db';
+import { logGeneration, countRecentGenerations } from '@/lib/db';
 import { buildSkillZip } from '@/lib/zip';
 import { isValidEmail } from '@/lib/validate';
 import { OS_BRIDGE_FILENAME, OS_BRIDGE_MD } from '@/lib/os-bridge';
+import { buildPackIndex } from '@/lib/pack-index';
+import { buildConsciousnessMap } from '@/lib/map-template';
 import {
   methodologyById,
   MIN_INPUTS,
@@ -70,6 +72,17 @@ export async function POST(req: NextRequest) {
     }
   }
 
+  // Free tier: cap synthesis runs per email per day (fails open if no DB).
+  if (tier === 'free') {
+    const recent = await countRecentGenerations(email);
+    if (recent >= 3) {
+      return NextResponse.json(
+        { error: 'You\'ve run 3 syntheses today — that\'s the daily limit on the free tier. Come back tomorrow, or go Pro for the full run.' },
+        { status: 429 }
+      );
+    }
+  }
+
   // Collect and validate lenses
   const lenses = (body.inputs || [])
     .map((i) => {
@@ -123,11 +136,19 @@ export async function POST(req: NextRequest) {
   }
 
   // Always a zip — the intelligence layer is a multi-file pack.
-  // Pro packs also carry the static Level 1 → Level 2 bridge.
-  const packFiles =
-    tier === 'pro'
-      ? [...generated.files, { name: OS_BRIDGE_FILENAME, content: OS_BRIDGE_MD }]
-      : generated.files;
+  // Pro packs also carry the OS bridge and the visual consciousness map.
+  const packFiles = [...generated.files];
+  if (tier === 'pro') {
+    const indexFile = packFiles.find((f) => f.name === 'consciousness-index.json');
+    if (indexFile) {
+      const map = buildConsciousnessMap(indexFile.content);
+      if (map) packFiles.push(map);
+    }
+    packFiles.push({ name: OS_BRIDGE_FILENAME, content: OS_BRIDGE_MD });
+  }
+  packFiles.unshift(
+    buildPackIndex({ name, tier, fileNames: ['INTELLIGENCE.md', ...packFiles.map((f) => f.name)] })
+  );
   const zipBuf = await buildSkillZip(packFiles);
   const downloadUrl = `data:application/zip;base64,${zipBuf.toString('base64')}`;
 

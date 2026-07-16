@@ -133,6 +133,13 @@ export const METHODOLOGIES: Methodology[] = [
     reveals: 'What you\'re building, what drives you, and what the next phase looks like.',
     placeholder: 'What are you working toward? What actually drives you? What does the next phase of your life and work look like if it goes right?…',
   },
+  {
+    id: 'business',
+    name: 'Your work & business',
+    category: 'own-words',
+    reveals: 'What you do, who you serve, your offers and your voice — so the map connects your wiring to your work.',
+    placeholder: 'Describe your work or business: what you offer, who it\'s for, how you naturally sell and create, what\'s working, what feels heavy…',
+  },
 ];
 
 export function methodologyById(id: string): Methodology | undefined {
